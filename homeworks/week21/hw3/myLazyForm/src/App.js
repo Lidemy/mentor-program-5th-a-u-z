@@ -169,7 +169,14 @@ function App() {
     data.current.other = e.target.value
   }
   const handleButton = () => {
-    alert(`
+    if (
+      data.current.nickname &&
+      data.current.email &&
+      data.current.phoneNumber &&
+      data.current.activity &&
+      data.current.how
+    ) {
+      alert(`
       暱稱：${data.current.nickname}
       email:${data.current.email}
       手機號碼：${data.current.phoneNumber}
@@ -177,12 +184,11 @@ function App() {
       如何知道活動：${data.current.how}
       ${data.current.other ? `建議：${data.current.other}` : ``}
     `)
+    } else {
+      alert('有欄位沒有填寫到喔，看看紅字的地方')
+    }
   }
-  const [test, setTest] = useState(0)
-  function handleTestClick() {
-    setTest(Math.random())
-    console.log(test)
-  }
+
   return (
     <>
       <Body>
@@ -230,7 +236,6 @@ function App() {
         </MainBoard>
       </Body>
       <Footer>© 2021 © Copyright. All rights Reserved.</Footer>
-      <TestDiv onClick={handleTestClick}>123</TestDiv>
     </>
   )
 }
