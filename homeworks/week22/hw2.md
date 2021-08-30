@@ -10,13 +10,13 @@
 		*  是放初始值，可以是任何型態，如果要放空值的話，也要寫上，例如("") 。
 		* 雖然是初始值，但是其實每次程式碼執行到 initialState 的時候都會執行一次，所以要用 Lazy initial state，就可以解決這個問題
 
-```js
+			```js
 useState( () => { 
 	const initialState = 複雜運算()
 	return initialState
 })  
 ```
-* 續 useState
+
 	*  `state` 
 		* `state` 的初始值就是用上面所說的方式設定
 	*  `setState` 
@@ -35,11 +35,11 @@ useState( () => {
 	*  無需清除的 useEffect
 
 	
-```js
+		```js
 useEffect(() => { document.title = `You clicked ${count} times`})
 ```
 
-* 續 useEffect
+
 	*  可以放入 count ，這個是一個 state 而已
 	*  需清除的 useEffect
 		* 還沒研究.... * useLayoutEffect
@@ -61,7 +61,8 @@ useEffect(() => { document.title = `You clicked ${count} times`})
 	* 然後把曾祖父的 return 用 `<XXX.Provider value={{a, setA}}></ XXX.Provider>` 包起來， value 放剛剛在曾祖父裡面宣告的 state，這樣就完成了跟 react 的交代，等等可以把 state 傳送給曾祖父層底下的任何 component 。
 	* 移動到「本身」這一層，在「本身」裡面  `const {} = useContext(XXX)`，就可以拿到曾祖父層的 state ，而且跳過祖父和父這兩個過客
 	* 程式碼如下
-	* ```js
+		
+		```js
 // 這裡是 曾祖父層
 const Z = createContext()
 const [a, setA] = useState()
@@ -154,7 +155,7 @@ function MeComponent() {
 * useMemo
 	* 因為 state 只要改變，擁有 state 的那個 component 就會重新執行一次，可是裡面有些東西並沒有改變到，要重新執行的話就是浪費效能，這時候對於一個「值」的保留，就可 用 useMemo
 	* 
-```
+```js
 const a = useMemo(() => {
     const value = a * b * c * 9999999 // 複雜計算
     return value
