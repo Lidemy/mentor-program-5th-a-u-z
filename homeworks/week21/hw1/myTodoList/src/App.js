@@ -1,7 +1,7 @@
 import styled from "styled-components"; // 引入一個可以寫 css 的 package
 import React, { useState, useRef } from "react"; // 要引入才可以用 state, ref
 // 底下就是用 styled 寫的 css ，要 .創造的標籤
-// 然後就可以打一些 css, sass, scss 的寫法
+// 然後就可以打一些 css, scss 的寫法
 const TodoItemWrapper = styled.div`
   display: flex;
   align-items: center;

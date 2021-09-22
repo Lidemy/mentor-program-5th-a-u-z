@@ -1,11 +1,11 @@
-import './App.css'
-import styled from 'styled-components'
-import { useRef, useState } from 'react'
+import './App.css';
+import styled from 'styled-components';
+import { useRef, useState } from 'react';
 const Body = styled.div`
   display: flex;
   justify-content: center;
   background: rgb(225, 225, 225);
-`
+`;
 const MainBoard = styled.div`
   width: 645px;
   display: flex;
@@ -18,24 +18,24 @@ const MainBoard = styled.div`
     box-shadow: 2px 2.6px 5.5px 0px ${props => props.color};
     transition: ;
   }
-`
+`;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 15px;
   margin-left: 35px;
-`
+`;
 const Title = styled.div`
   font-size: 35px;
   color: black;
   margin-top: 30px;
   margin-bottom: 35px;
-`
+`;
 const ActivityInformation = styled.div`
   font-size: 18px;
   color: purple;
   margin-top: 5px;
-`
+`;
 const SubTitle = styled.div`
   font-size: 20px;
   margin-bottom: 25px;
@@ -52,15 +52,15 @@ const SubTitle = styled.div`
     color: red;
     font-size: 15px;
   }
-`
+`;
 const QuestionBlock = styled.div`
   margin-top: 45px;
   margin-bottom: 15px;
-`
+`;
 const Input = styled.input`
   width: 287px;
   height: 23px;
-`
+`;
 const Button = styled.button`
   padding: 5px;
   background: #fad312;
@@ -69,12 +69,12 @@ const Button = styled.button`
   height: 44px;
   margin-top: 30px;
   margin-bottom: 10px;
-`
+`;
 const Warning = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
   color: red;
-`
+`;
 const Footer = styled.div`
   color: #999999;
   text-align: center;
@@ -85,12 +85,12 @@ const Footer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
+`;
 const TestDiv = styled.button`
   color: red;
   width: 200px;
   height: 200px;
-`
+`;
 const Radio = ({ onChangeType }) => {
   return (
     <div>
@@ -117,20 +117,20 @@ const Radio = ({ onChangeType }) => {
         </label>
       </div>
     </div>
-  )
-}
+  );
+};
 const Other = styled.div`
   margin-top: 15px;
   margin-bottom: 30px;
-`
+`;
 function App() {
-  const colors = ['#ff0000', '#00ff00', '#0000ff']
-  const randomColor = colors[Math.floor(Math.random() * colors.length)]
-  const [nickname, setNickname] = useState({ isntDone: true })
-  const [email, setEmail] = useState({ isntDone: true })
-  const [phoneNumber, setPhoneNumber] = useState({ isntDone: true })
-  const [how, setHow] = useState({ isntDone: true })
-  const [activity, setActivity] = useState({ isntDone: true })
+  const colors = ['#ff0000', '#00ff00', '#0000ff'];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  const [nickname, setNickname] = useState({ isntDone: true });
+  const [email, setEmail] = useState({ isntDone: true });
+  const [phoneNumber, setPhoneNumber] = useState({ isntDone: true });
+  const [how, setHow] = useState({ isntDone: true });
+  const [activity, setActivity] = useState({ isntDone: true });
   const data = useRef({
     nickname: null,
     email: null,
@@ -138,48 +138,48 @@ function App() {
     how: null,
     activity: null,
     other: null,
-  })
+  });
   const handleNickname = e => {
     e.target.value
       ? setNickname({ isntDone: false })
-      : setNickname({ isntDone: true })
-    data.current.nickname = e.target.value
-  }
+      : setNickname({ isntDone: true });
+    data.current.nickname = e.target.value;
+  };
   const handleEmail = e => {
     const emailRegexRule =
-      /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/
-    console.log(emailRegexRule.test(e.target.value))
+      /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+    console.log(emailRegexRule.test(e.target.value));
     if (emailRegexRule.test(e.target.value)) {
-      setEmail({ isntDone: !emailRegexRule.test(e.target.value) })
-      data.current.email = e.target.value
+      setEmail({ isntDone: !emailRegexRule.test(e.target.value) });
+      data.current.email = e.target.value;
     } else {
-      setEmail({ isntDone: !emailRegexRule.test(e.target.value) })
-      data.current.email = e.target.value
+      setEmail({ isntDone: !emailRegexRule.test(e.target.value) });
+      data.current.email = e.target.value;
     }
-  }
+  };
   const handlePhoneNumber = e => {
-    const phoneNumberRegexRule = /^09\d{8}$/
+    const phoneNumberRegexRule = /^09\d{8}$/;
     if (phoneNumberRegexRule.test(e.target.value)) {
-      setPhoneNumber({ isntDone: !phoneNumberRegexRule.test(e.target.value) })
-      data.current.phoneNumber = e.target.value
+      setPhoneNumber({ isntDone: !phoneNumberRegexRule.test(e.target.value) });
+      data.current.phoneNumber = e.target.value;
     } else {
-      setPhoneNumber({ isntDone: !phoneNumberRegexRule.test(e.target.value) })
-      data.current.phoneNumber = e.target.value
+      setPhoneNumber({ isntDone: !phoneNumberRegexRule.test(e.target.value) });
+      data.current.phoneNumber = e.target.value;
     }
-  }
+  };
   const onChangeType = e => {
-    setActivity({ isntDone: !e.target.value })
-    data.current.activity = e.target.value
-  }
+    setActivity({ isntDone: !e.target.value });
+    data.current.activity = e.target.value;
+  };
   const handleHow = e => {
-    e.target.value ? setHow({ isntDone: false }) : setHow({ isntDone: true })
-    data.current.how = e.target.value
-  }
+    e.target.value ? setHow({ isntDone: false }) : setHow({ isntDone: true });
+    data.current.how = e.target.value;
+  };
   const handleOther = e => {
-    data.current.other = e.target.value
-  }
+    data.current.other = e.target.value;
+  };
   const handleButton = () => {
-    console.log(nickname.isntDone)
+    console.log(nickname.isntDone);
     if (
       data.current.nickname &&
       data.current.email &&
@@ -194,11 +194,11 @@ function App() {
       報名類型：${data.current.activity}
       如何知道活動：${data.current.how}
       ${data.current.other ? `建議：${data.current.other}` : ``}
-    `)
+    `);
     } else {
-      alert('有欄位沒有填寫到或是格式不對，再檢查一下紅字的地方')
+      alert('有欄位沒有填寫到或是格式不對，再檢查一下紅字的地方');
     }
-  }
+  };
   return (
     <>
       <Body>
@@ -247,6 +247,6 @@ function App() {
       </Body>
       <Footer>© 2021 © Copyright. All rights Reserved.</Footer>
     </>
-  )
+  );
 }
-export default App
+export default App;
