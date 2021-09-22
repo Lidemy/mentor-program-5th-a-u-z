@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function Article({ article, handleClickSingleArticle }) {
   if (article.body.length > 150) {
@@ -7,7 +7,7 @@ export default function Article({ article, handleClickSingleArticle }) {
       <tr key={article.id}>
         <td className="w-12 px-6 py-4 whitespace-nowrap">
           <div className="flex items-center">
-            <div className="overflow-x-hidden font-medium text-gray-900 w-96 text-m ">
+            <div className="overflow-x-hidden font-medium text-gray-900 break-all w-96 text-m ">
               {article.title}
             </div>
           </div>
@@ -35,7 +35,7 @@ export default function Article({ article, handleClickSingleArticle }) {
           </div>
         </td>
       </tr>
-    )
+    );
   } else {
     return (
       <tr key={article.id}>
@@ -58,6 +58,6 @@ export default function Article({ article, handleClickSingleArticle }) {
           </div>
         </td>
       </tr>
-    )
+    );
   }
 }
