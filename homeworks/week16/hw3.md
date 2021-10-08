@@ -1,3 +1,5 @@
+[week16 hw3](https://hackmd.io/@auz/Syvz5Ja1Y#/)
+
 程式一讀到這個檔案的時候
 
 ```

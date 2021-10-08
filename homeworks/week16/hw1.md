@@ -1,3 +1,5 @@
+[week16 hw1](https://hackmd.io/@auz/HJWC_vsyF#/)
+
 * Stack：堆疊。後進先出
 * Queue：排隊。先進先出。
 * Web APIs： setTimeout, XMLHttpsResquest
